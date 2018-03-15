@@ -76,6 +76,8 @@ dependencies {
     implementation rootProject.ext.dependencies["eventbus"]
     implementation rootProject.ext.dependencies["rxandroid2"]
     implementation rootProject.ext.dependencies["rxpermissions2"]
+    implementation rootProject.ext.dependencies["rxbinding-kotlin"]
+    implementation rootProject.ext.dependencies["rxbinding-recyclerview-kotlin"]
 
     // view
     implementation rootProject.ext.dependencies["boxing"]

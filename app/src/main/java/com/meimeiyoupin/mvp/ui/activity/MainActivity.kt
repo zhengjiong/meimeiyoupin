@@ -2,6 +2,7 @@ package com.meimeiyoupin.mvp.ui.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.meimeiyoupin.R
 
 /**
@@ -11,6 +12,7 @@ import com.meimeiyoupin.R
  * @author 郑炯
  * @version 1.0
  */
+@Route(path = "/app/main")
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

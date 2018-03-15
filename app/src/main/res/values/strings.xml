@@ -4,8 +4,11 @@
     
     <string name="module_login_et_phone_hint">手机号码</string>
     <string name="module_login_et_validate_code_hint">验证码</string>
+    <string name="module_login_tv_send_code">获取验证码</string>
     <string name="module_login_et_invite_code_hint">邀请码</string>
     <string name="module_login_agree_protocol">同意用户协议</string>
 
-    <string name="module_login_tv">立即登录</string>
+    <string name="module_login_tv_immediately">立即登录</string>
+
+    <string name="module_upload_picture_toolbar">上传照片</string>
 </resources>

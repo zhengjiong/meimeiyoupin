@@ -24,7 +24,9 @@
             android:name="com.meimeiyoupin.app.GlobalConfiguration"
             android:value="ConfigModule"/>
 
-        <activity android:name=".mvp.ui.activity.LauncherActivity">
+        <activity
+            android:name=".mvp.ui.activity.LauncherActivity"
+            android:theme="@style/LauncherTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -33,6 +35,7 @@
         </activity>
         <activity android:name=".mvp.ui.activity.LoginActivity"/>
         <activity android:name=".mvp.ui.activity.MainActivity"/>
+        <activity android:name=".mvp.ui.activity.UploadPictureActivity"/>
     </application>
 
 </manifest>

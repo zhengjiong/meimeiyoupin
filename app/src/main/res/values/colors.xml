@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#fb7299</color>
+    <!--<color name="colorPrimary">#fb7299</color>-->
+    <color name="colorPrimary">#fdb7d4</color>
     <color name="colorPrimaryDark">#b85671</color>
     <color name="colorAccent">#333333</color>
+    <color name="textColorPrimary">#0c0002</color>
 
 
     <color name="color_fd6aa9">#fd6aa9</color>
-    <color name="color_fd6aa9_pressed">#FFA3CB</color>
+    <color name="color_fd6aa9_pressed">#F893BE</color>
+
+
+    <color name="bottom_bar_under_line_nav_home">#DDDDDD</color>
+    <color name="bottom_bar_text_select_nav_home">#FA749A</color>
+    <color name="bottom_bar_text_unselect_nav_home">#87888A</color>
+
+    <color name="color_8d8d8d">#8d8d8d</color>
+    <color name="color_afafaf">#afafaf</color>
+    <color name="color_fdb7d4">#fdb7d4</color>
+    <color name="color_fab0c9">#fab0c9</color>
+
 </resources>

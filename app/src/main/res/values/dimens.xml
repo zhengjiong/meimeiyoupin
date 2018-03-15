@@ -8,4 +8,8 @@
     <dimen name="margin_8">8dp</dimen>
     <dimen name="padding_12">12dp</dimen>
     <dimen name="margin_12">12dp</dimen>
+
+    <!--NavHomeFragment:底部导航栏-->
+    <dimen name="bottom_bar_icon_nav_home">18dp</dimen>
+    <dimen name="bottom_bar_text_nav_home">11dp</dimen>
 </resources>

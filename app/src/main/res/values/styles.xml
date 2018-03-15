@@ -1,11 +1,15 @@
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="ToolBarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+        <!-- navigation icon color -->
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:navigationIcon">@drawable/ic_arrow_back_black_24dp</item>
+        <item name="navigationIcon">@drawable/ic_arrow_back_black_24dp</item>
+        <item name="background">@color/colorPrimary</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
+    <!-- toolbar标题样式 -->
+    <style name="ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18dp</item>
+    </style>
 </resources>
