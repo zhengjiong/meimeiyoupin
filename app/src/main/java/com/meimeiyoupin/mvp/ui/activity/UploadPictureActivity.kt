@@ -8,6 +8,7 @@ import com.jess.arms.base.BaseActivity
 import com.jess.arms.di.component.AppComponent
 import com.jess.arms.mvp.IPresenter
 import com.meimeiyoupin.R
+import com.meimeiyoupin.app.ARouterPath
 
 /**
  *
@@ -16,7 +17,7 @@ import com.meimeiyoupin.R
  * @author 郑炯
  * @version 1.0
  */
-@Route(path = "/app/upload_picture")
+@Route(path = ARouterPath.UPLOAD_PICTURE)
 class UploadPictureActivity : BaseActivity<IPresenter>() {
     @BindView(R.id.toolbar)
     lateinit var mToolbar: Toolbar

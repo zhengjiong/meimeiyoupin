@@ -25,14 +25,15 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <android.support.design.widget.FloatingActionButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             app:backgroundTint="@color/color_fab0c9"
             app:fabSize="normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/module_upload_picture_add_bg"
             app:rippleColor="@color/white"
             />
     </android.support.constraint.ConstraintLayout>
