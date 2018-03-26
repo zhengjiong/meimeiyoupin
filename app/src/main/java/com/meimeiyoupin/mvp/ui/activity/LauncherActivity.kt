@@ -1,7 +1,6 @@
 package com.meimeiyoupin.mvp.ui.activity
 
 import android.os.Bundle
-import android.view.WindowManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.jess.arms.base.BaseActivity
@@ -29,7 +28,8 @@ class LauncherActivity : BaseActivity<IPresenter>() {
         Observable.timer(1500, TimeUnit.MILLISECONDS)
                 .compose(RxLifecycleUtils.bindToLifecycle(this))
                 .subscribe {
-                    ARouter.getInstance().build("/app/login").navigation(this)
+                    //ARouter.getInstance().build("/app/login").navigation(this)
+                    ARouter.getInstance().build("/app/all").navigation(this)
                     finish()
                 }
     }
