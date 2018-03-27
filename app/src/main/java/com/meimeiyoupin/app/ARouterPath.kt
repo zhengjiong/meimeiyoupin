@@ -22,4 +22,6 @@ object ARouterPath {
 
     //资料填写
     const val INFORMATION_WRITE = "/app/information_write"
+
+    const val UPLOAD_OFFICE_PICTURE = "/app/upload_office_picture"
 }

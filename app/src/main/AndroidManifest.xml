@@ -38,6 +38,7 @@
         <activity android:name=".mvp.ui.activity.UploadPictureActivity"/>
         <activity android:name=".mvp.ui.activity.AllActivityList"/>
         <activity android:name=".mvp.ui.activity.InformationWriteActivity"/>
+        <activity android:name=".mvp.ui.activity.UploadOfficePictureActivity"/>
     </application>
 
 </manifest>
