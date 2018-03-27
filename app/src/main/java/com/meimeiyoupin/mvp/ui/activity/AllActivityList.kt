@@ -34,7 +34,8 @@ class AllActivityList : AppCompatActivity() {
                 ActivityName("登录页", ARouterPath.LOGIN),
                 ActivityName("上传照片", ARouterPath.UPLOAD_PICTURE),
                 ActivityName("资料填写", ARouterPath.INFORMATION_WRITE),
-                ActivityName("办公环境", ARouterPath.UPLOAD_OFFICE_PICTURE)
+                ActivityName("办公环境", ARouterPath.UPLOAD_OFFICE_PICTURE),
+                ActivityName("营业执照", ARouterPath.UPLOAD_LICENSE)
         ))
 
     }
