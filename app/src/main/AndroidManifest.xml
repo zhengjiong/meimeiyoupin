@@ -37,6 +37,7 @@
         <activity android:name=".mvp.ui.activity.MainActivity"/>
         <activity android:name=".mvp.ui.activity.UploadPictureActivity"/>
         <activity android:name=".mvp.ui.activity.AllActivityList"/>
+        <activity android:name=".mvp.ui.activity.InformationWriteActivity"/>
     </application>
 
 </manifest>

@@ -8,7 +8,7 @@
 
 
     <color name="color_fd6aa9">#fd6aa9</color>
-    <color name="color_fd6aa9_pressed">#F893BE</color>
+    <color name="color_fd6aa9_pressed">#FFAED0</color>
 
 
     <color name="bottom_bar_under_line_nav_home">#DDDDDD</color>
@@ -19,8 +19,12 @@
     <color name="color_afafaf">#afafaf</color>
     <color name="color_fdb7d4">#fdb7d4</color>
     <color name="color_fab0c9">#fab0c9</color>
+    <color name="color_fde5f3">#fde5f3</color>
+    <color name="color_fdbee3">#FDBEE3</color>
+    <color name="color_000000">#000000</color>
     <color name="color_333333">#333333</color>
     <color name="color_666666">#666666</color>
     <color name="color_999999">#999999</color>
+    <color name="color_f2f1ef">#f2f1ef</color>
 
 </resources>
