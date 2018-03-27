@@ -2,7 +2,6 @@ package com.meimeiyoupin.mvp.ui.activity
 
 import android.os.Bundle
 import android.widget.TextView
-import android.widget.Toast
 import butterknife.BindView
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter

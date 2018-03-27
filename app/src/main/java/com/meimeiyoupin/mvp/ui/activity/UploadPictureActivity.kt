@@ -28,6 +28,9 @@ class UploadPictureActivity : BaseActivity<IPresenter>() {
 
     override fun initData(savedInstanceState: Bundle?) {
         mToolbar.setTitle(R.string.module_upload_picture_toolbar)
+        mToolbar.setNavigationOnClickListener{
+            finish()
+        }
     }
 
     override fun initView(savedInstanceState: Bundle?): Int {

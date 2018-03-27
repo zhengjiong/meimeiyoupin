@@ -18,20 +18,64 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
-        android:textSize="15dp"
         android:gravity="center_vertical"
-        android:textColor="@color/color_666666"
+        android:hint="请输入身高"
         android:paddingLeft="@dimen/padding_16"
-        android:hint="请输入身高"/>
+        android:textColor="@color/color_666666"
+        android:textSize="15dp"/>
+    <include layout="@layout/module_divider_horizontal_color_cecece"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginTop="@dimen/margin_8"
+        android:background="@color/color_cecece"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/white"
-        android:layout_marginTop="@dimen/margin_8"
-        android:textColor="@color/color_666666"
-        android:textSize="15dp"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/padding_16"
-        android:text="年龄"/>
+        android:text="年龄"
+        android:textColor="@color/color_666666"
+        android:textSize="15dp"/>
+    <include layout="@layout/module_divider_horizontal_color_cecece"/>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        >
+
+        <RadioButton
+            android:id="@+id/rb_woman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/module_login_selector_cb"
+            android:checked="true"
+            android:paddingLeft="@dimen/padding_8"
+            android:text="女"/>
+
+        <RadioButton
+            android:id="@+id/rb_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:button="@drawable/module_login_selector_cb"
+            android:paddingLeft="@dimen/padding_8"
+            android:text="男"/>
+    </RadioGroup>
+    <TextView
+        android:id="@+id/btn_next"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/module_upload_picture_tv_background_selector"
+        android:gravity="center"
+        android:text="下一步"
+        android:textColor="@color/white"
+        android:textSize="16dp"/>
 </LinearLayout>
