@@ -21,14 +21,34 @@ android {
 
         vectorDrawables.useSupportLibrary = false
     }
+    signingConfigs {
+        debug {
+            storeFile file("../keystore")
+            storePassword "android"
+            keyAlias "meimeiyoupin"
+            keyPassword "android"
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+        release {
+            storeFile file("../keystore")
+            storePassword "android"
+            keyAlias "meimeiyoupin"
+            keyPassword "android"
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
 
+    }
     buildTypes {
         debug {
+            signingConfig signingConfigs.debug
             buildConfigField "boolean", "LOG_DEBUG", "true"
             buildConfigField "boolean", "USE_CANARY", "true"
             minifyEnabled false
         }
         release {
+            signingConfig signingConfigs.release
             buildConfigField "boolean", "LOG_DEBUG", "false"
             buildConfigField "boolean", "USE_CANARY", "false"
             minifyEnabled false
