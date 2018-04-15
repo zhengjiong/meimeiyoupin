@@ -28,4 +28,5 @@ object ARouterPath {
 
     //营业执照
     const val UPLOAD_LICENSE = "/app/upload_license"
+
 }

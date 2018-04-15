@@ -1,4 +1,4 @@
-package com.zj.bilibili.mvp.ui.base;
+package com.meimeiyoupin.mvp.ui.base;
 
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
@@ -200,5 +200,12 @@ public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActi
      */
     public void showHideFragment(ISupportFragment showFragment, ISupportFragment hideFragment) {
         mDelegate.showHideFragment(showFragment, hideFragment);
+    }
+
+    /**
+     * show一个Fragment,hide所有同级的fragment ; 主要用于类似微信主页那种 切换tab的情况
+     */
+    public void showHideFragment(ISupportFragment showFragment) {
+        mDelegate.showHideFragment(showFragment);
     }
 }

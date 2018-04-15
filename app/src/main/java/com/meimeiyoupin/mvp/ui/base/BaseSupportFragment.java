@@ -1,4 +1,4 @@
-package com.zj.bilibili.mvp.ui.base;
+package com.meimeiyoupin.mvp.ui.base;
 
 import android.app.Activity;
 import android.content.Intent;
