@@ -1,12 +1,18 @@
 package com.meimeiyoupin.mvp.ui.fragment
 
 import android.os.Bundle
+import android.support.design.widget.TabLayout
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import butterknife.BindView
+import com.bigkoo.convenientbanner.ConvenientBanner
 import com.jess.arms.di.component.AppComponent
 import com.jess.arms.mvp.IPresenter
 import com.meimeiyoupin.R
+import com.meimeiyoupin.mvp.ui.adapter.JobFragmentListAdapter
 import com.meimeiyoupin.mvp.ui.base.BaseSupportFragment
 
 /**
@@ -15,6 +21,12 @@ import com.meimeiyoupin.mvp.ui.base.BaseSupportFragment
  */
 
 class JobFragment : BaseSupportFragment<IPresenter>() {
+
+    @BindView(R.id.banner)
+    lateinit var banner: ConvenientBanner<String>
+
+    @BindView(R.id.recyclerView)
+    lateinit var recyclerView: RecyclerView
 
     companion object {
         @JvmStatic
@@ -28,6 +40,8 @@ class JobFragment : BaseSupportFragment<IPresenter>() {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = JobFragmentListAdapter()
 
     }
 

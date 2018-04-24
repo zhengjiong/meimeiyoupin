@@ -38,6 +38,8 @@ class MainActivity : BaseSupportActivity<IPresenter>() {
         mFragments[1] = ResumeFragment.newInstance()
         mFragments[2] = ResumeFragment.newInstance()
 
+        loadRootFragment(R.id.fl_container, mFragments[0]!!)
+
         tabLayout.run {
             setTabData(arrayListOf(
                     TabEntity("工作", R.mipmap.ic_home_selected, R.mipmap.ic_home_unselected),
@@ -55,6 +57,7 @@ class MainActivity : BaseSupportActivity<IPresenter>() {
 
             })
         }
+
     }
 
 

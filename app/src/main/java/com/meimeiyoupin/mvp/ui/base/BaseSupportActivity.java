@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.MotionEvent;
 
 import com.jess.arms.base.BaseActivity;
@@ -23,7 +24,9 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
  * @author zhengjiong
  */
 public abstract class BaseSupportActivity<P extends IPresenter> extends BaseActivity<P> implements ISupportActivity {
-
+    static {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+    }
     final SupportActivityDelegate mDelegate = new SupportActivityDelegate(this);
 
     @Override
