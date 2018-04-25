@@ -7,11 +7,11 @@ import com.flyco.tablayout.CommonTabLayout
 import com.flyco.tablayout.listener.OnTabSelectListener
 import com.jess.arms.di.component.AppComponent
 import com.jess.arms.mvp.IPresenter
+import com.meimeiyoupin.mvp.ui.fragment.JobFragment
 import com.meimeiyoupin.R
 import com.meimeiyoupin.app.ARouterPath
 import com.meimeiyoupin.mvp.model.entity.TabEntity
 import com.meimeiyoupin.mvp.ui.base.BaseSupportActivity
-import com.meimeiyoupin.mvp.ui.fragment.JobFragment
 import com.meimeiyoupin.mvp.ui.fragment.ResumeFragment
 import me.yokeyword.fragmentation.ISupportFragment
 

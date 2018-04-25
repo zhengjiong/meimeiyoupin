@@ -10,6 +10,7 @@ import butterknife.BindView
 import com.bigkoo.convenientbanner.ConvenientBanner
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator
 import com.blankj.utilcode.util.ConvertUtils
+import com.jakewharton.rxbinding2.view.RxView
 import com.jess.arms.di.component.AppComponent
 import com.jess.arms.mvp.IPresenter
 import com.meimeiyoupin.R
@@ -18,6 +19,8 @@ import com.meimeiyoupin.mvp.ui.adapter.JobFragmentListAdapter
 import com.meimeiyoupin.mvp.ui.base.BaseSupportFragment
 import com.meimeiyoupin.mvp.ui.holder.BannerImageHolder
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration
+import io.reactivex.functions.Consumer
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by zhengjiong
@@ -30,6 +33,24 @@ class JobFragment : BaseSupportFragment<IPresenter>() {
 
     @BindView(R.id.recyclerView)
     lateinit var recyclerView: RecyclerView
+
+    @BindView(R.id.city_container)
+    lateinit var cityContainer: View
+
+    @BindView(R.id.type_container)
+    lateinit var typeContainer: View
+
+    @BindView(R.id.profession_container)
+    lateinit var professionContainer: View
+
+    @BindView(R.id.icon_city)
+    lateinit var iconCity: View
+
+    @BindView(R.id.icon_type)
+    lateinit var iconType: View
+
+    @BindView(R.id.icon_profession)
+    lateinit var iconProfession: View
 
     private val jobFragmentListAdapter: JobFragmentListAdapter by lazy {
         JobFragmentListAdapter()
@@ -57,7 +78,49 @@ class JobFragment : BaseSupportFragment<IPresenter>() {
         )
         recyclerView.adapter = jobFragmentListAdapter
 
+        initListener()
+
         testData()
+    }
+
+    private fun initListener() {
+        RxView.clicks(cityContainer).throttleFirst(500, TimeUnit.MILLISECONDS)
+                .subscribe(object : Consumer<Any> {
+                    override fun accept(t: Any?) {
+                        rotateArrow(iconCity)
+                    }
+
+                }, Consumer<Throwable> { })
+        RxView.clicks(typeContainer).throttleFirst(500, TimeUnit.MILLISECONDS)
+                .subscribe(Consumer<Any> { rotateArrow(iconType) }, Consumer<Throwable> { })
+
+        RxView.clicks(professionContainer).throttleFirst(500, TimeUnit.MILLISECONDS)
+                .subscribe({ t ->
+                    rotateArrow(iconProfession)
+                }) { }
+    }
+
+    private fun rotateArrow(view: View) {
+        if (view.rotation == 0F) {
+            view.animate().rotation(180F).setDuration(300).start()
+        } else {
+            view.animate().rotation(0F).setDuration(300).start()
+        }
+        when (view) {
+            iconCity -> {
+                iconType.animate().rotation(0F).setDuration(300).start()
+                iconProfession.animate().rotation(0F).setDuration(300).start()
+            }
+            iconType -> {
+                iconCity.animate().rotation(0F).setDuration(300).start()
+                iconProfession.animate().rotation(0F).setDuration(300).start()
+            }
+            iconProfession -> {
+                iconCity.animate().rotation(0F).setDuration(300).start()
+                iconType.animate().rotation(0F).setDuration(300).start()
+            }
+        }
+
     }
 
     private fun testData() {
@@ -98,6 +161,7 @@ class JobFragment : BaseSupportFragment<IPresenter>() {
         }, mutableListOf("", "", "", "", "", ""))
                 .setPageIndicator(intArrayOf(R.drawable.ic_page_card_indicator, R.drawable.ic_page_card_indicator_selected))
                 .setPointViewVisible(true).isCanLoop = true
+        banner.startTurning(3000)
     }
 
     override fun initView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
