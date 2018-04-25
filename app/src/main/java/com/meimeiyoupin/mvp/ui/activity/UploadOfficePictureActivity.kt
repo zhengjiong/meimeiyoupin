@@ -27,7 +27,7 @@ class UploadOfficePictureActivity : BaseActivity<IPresenter>() {
         return R.layout.module_activity_upload_office_picture_layout
     }
 
-    override fun setupActivityComponent(appComponent: AppComponent?) {
+    override fun setupActivityComponent(appComponent: AppComponent) {
 
     }
 

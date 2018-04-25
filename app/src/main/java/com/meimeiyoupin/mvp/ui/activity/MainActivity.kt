@@ -30,7 +30,7 @@ class MainActivity : BaseSupportActivity<IPresenter>() {
         arrayOfNulls<ISupportFragment>(3)
     }
 
-    override fun setupActivityComponent(appComponent: AppComponent?) {
+    override fun setupActivityComponent(appComponent: AppComponent) {
     }
 
     override fun initData(savedInstanceState: Bundle?) {

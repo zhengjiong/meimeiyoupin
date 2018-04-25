@@ -77,16 +77,14 @@ kapt {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    implementation 'com.android.support:multidex:1.0.3'
 
-    implementation 'me.jessyan:arms:2.3.1'
+    implementation 'me.jessyan:arms:2.4.1'
 
-    implementation rootProject.ext.dependencies["design"]
+    implementation rootProject.ext.dependencies["multidex"]
+    //implementation rootProject.ext.dependencies["design"]
+    //implementation rootProject.ext.dependencies["appcompat-v7"]
     implementation rootProject.ext.dependencies["recyclerview-v7"]
     implementation rootProject.ext.dependencies["BottomNavigationViewEx"]
     implementation rootProject.ext.dependencies["gson"]
@@ -99,6 +97,12 @@ dependencies {
     implementation rootProject.ext.dependencies["rxbinding-kotlin"]
     implementation rootProject.ext.dependencies["rxbinding-recyclerview-kotlin"]
 
+    implementation (rootProject.ext.dependencies["glide"]) {
+        exclude group: "com.android.support"
+    }
+    kapt rootProject.ext.dependencies["glide-compiler"]
+    implementation rootProject.ext.dependencies["glide-loader-okhttp3"]
+
     // view
     implementation rootProject.ext.dependencies["boxing"]
     implementation rootProject.ext.dependencies["boxing-impl"]
@@ -110,16 +114,17 @@ dependencies {
     implementation rootProject.ext.dependencies["lifecyclemodel"]
     implementation rootProject.ext.dependencies["agentweb"]
     implementation rootProject.ext.dependencies["convenientbanner"]
+    implementation rootProject.ext.dependencies["flexibledivider"]
 
     // tool
     implementation rootProject.ext.dependencies["arouter"]
     kapt rootProject.ext.dependencies["arouter-compiler"]
     implementation rootProject.ext.dependencies["fragmentation-core"]
-
+    implementation rootProject.ext.dependencies["blankj-utilcode"]
 
     //annotationProcessor 是 AndroidStudio 自带并用来替换 APT
     //butterknife
-    kapt (rootProject.ext.dependencies["butterknife-compiler"]) {
+    kapt(rootProject.ext.dependencies["butterknife-compiler"]) {
         exclude module: 'support-annotations'
     }
 

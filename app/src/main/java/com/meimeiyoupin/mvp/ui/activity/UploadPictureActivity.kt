@@ -22,7 +22,7 @@ class UploadPictureActivity : BaseActivity<IPresenter>() {
     @BindView(R.id.toolbar)
     lateinit var mToolbar: Toolbar
 
-    override fun setupActivityComponent(appComponent: AppComponent?) {
+    override fun setupActivityComponent(appComponent: AppComponent) {
 
     }
 

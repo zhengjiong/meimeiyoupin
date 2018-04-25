@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/color_f2f1ef</item>
+        <item name="android:windowBackground">@color/color_background</item>
     </style>
 
     <style name="LauncherTheme" parent="AppTheme">

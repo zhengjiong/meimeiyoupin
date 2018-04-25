@@ -46,15 +46,15 @@ class AllActivityList : AppCompatActivity() {
     }
 
     class Adapter(val data: List<ActivityName>) : RecyclerView.Adapter<ListViewHolder>() {
-        override fun onBindViewHolder(holder: ListViewHolder?, position: Int) {
-            holder!!.tvTitle.text = data[position].name
+        override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
+            holder.tvTitle.text = data[position].name
             (holder.tvTitle.parent as View).setOnClickListener {
                 ARouter.getInstance().build(data[position].path).navigation(holder.itemView.context)
             }
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ListViewHolder {
-            return ListViewHolder(LayoutInflater.from(parent!!.context).inflate(R.layout.module_all_item, parent, false))
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
+            return ListViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.module_all_item, parent, false))
         }
 
         override fun getItemCount(): Int {

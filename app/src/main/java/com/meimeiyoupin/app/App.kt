@@ -2,6 +2,7 @@ package com.zj.bilibili.app
 
 import android.content.Context
 import android.support.multidex.MultiDex
+import com.blankj.utilcode.util.Utils
 import com.jess.arms.base.BaseApplication
 
 /**
@@ -16,5 +17,6 @@ class App : BaseApplication() {
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
         MultiDex.install(base)
+        Utils.init(this);
     }
 }

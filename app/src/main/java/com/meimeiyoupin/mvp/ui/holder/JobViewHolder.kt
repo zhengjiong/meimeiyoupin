@@ -1,8 +1,9 @@
 package com.meimeiyoupin.mvp.ui.holder
 
 import android.view.View
-import com.chad.library.adapter.base.BaseQuickAdapter
+import android.widget.TextView
 import com.chad.library.adapter.base.BaseViewHolder
+import com.meimeiyoupin.R
 
 /**
  *
@@ -13,6 +14,9 @@ import com.chad.library.adapter.base.BaseViewHolder
  */
 
 class JobViewHolder(val view: View) : BaseViewHolder(view) {
-
+    val tvTitle = view.findViewById<TextView>(R.id.tv_title)
+    val tvPrice = view.findViewById<TextView>(R.id.tv_price)
+    val tvDescription = view.findViewById<TextView>(R.id.tv_description)
+    val tvCompanyName = view.findViewById<TextView>(R.id.tv_company)
 }
  

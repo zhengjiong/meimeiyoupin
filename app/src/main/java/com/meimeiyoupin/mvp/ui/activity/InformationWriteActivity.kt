@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.module_activity_infomation_write_layout.*
 @Route(path = ARouterPath.INFORMATION_WRITE)
 class InformationWriteActivity : BaseActivity<IPresenter>() {
 
-    override fun setupActivityComponent(appComponent: AppComponent?) {
+    override fun setupActivityComponent(appComponent: AppComponent) {
 
     }
 

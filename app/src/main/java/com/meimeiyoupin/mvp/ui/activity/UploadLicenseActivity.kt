@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.module_activity_license_layout.*
  */
 @Route(path = ARouterPath.UPLOAD_LICENSE)
 class UploadLicenseActivity : BaseActivity<IPresenter>() {
-    override fun setupActivityComponent(appComponent: AppComponent?) {
+    override fun setupActivityComponent(appComponent: AppComponent) {
 
     }
 

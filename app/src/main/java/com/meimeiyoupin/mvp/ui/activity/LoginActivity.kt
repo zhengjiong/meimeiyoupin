@@ -35,7 +35,7 @@ class LoginActivity : BaseActivity<IPresenter>() {
         })
     }
 
-    override fun setupActivityComponent(appComponent: AppComponent?) {
+    override fun setupActivityComponent(appComponent: AppComponent) {
 
     }
 

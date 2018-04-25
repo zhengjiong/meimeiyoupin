@@ -23,7 +23,7 @@ class ResumeFragment : BaseSupportFragment<IPresenter>() {
         }
     }
 
-    override fun setupFragmentComponent(appComponent: AppComponent?) {
+    override fun setupFragmentComponent(appComponent: AppComponent) {
 
     }
 
@@ -31,8 +31,8 @@ class ResumeFragment : BaseSupportFragment<IPresenter>() {
 
     }
 
-    override fun initView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater!!.inflate(R.layout.module_fragment_resume, container, false)
+    override fun initView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        return inflater.inflate(R.layout.module_fragment_resume, container, false)
     }
 
     override fun setData(data: Any?) {
