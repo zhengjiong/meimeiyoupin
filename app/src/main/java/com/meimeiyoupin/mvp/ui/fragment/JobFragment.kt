@@ -1,14 +1,19 @@
 package com.meimeiyoupin.mvp.ui.fragment
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.support.annotation.IdRes
+import android.support.design.widget.AppBarLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.ListView
+import android.widget.PopupWindow
 import butterknife.BindView
 import com.bigkoo.convenientbanner.ConvenientBanner
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator
+import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ConvertUtils
 import com.jakewharton.rxbinding2.view.RxView
 import com.jess.arms.di.component.AppComponent
@@ -28,6 +33,13 @@ import java.util.concurrent.TimeUnit
  */
 
 class JobFragment : BaseSupportFragment<IPresenter>() {
+
+    @BindView(R.id.appbar)
+    lateinit var appbar: AppBarLayout
+
+    @BindView(R.id.filter_container)
+    lateinit var filterContainer: View
+
     @BindView(R.id.banner)
     lateinit var banner: ConvenientBanner<String>
 
@@ -51,6 +63,8 @@ class JobFragment : BaseSupportFragment<IPresenter>() {
 
     @BindView(R.id.icon_profession)
     lateinit var iconProfession: View
+
+    var verticalOffset: Int = 0
 
     private val jobFragmentListAdapter: JobFragmentListAdapter by lazy {
         JobFragmentListAdapter()
@@ -84,6 +98,11 @@ class JobFragment : BaseSupportFragment<IPresenter>() {
     }
 
     private fun initListener() {
+        appbar.addOnOffsetChangedListener(object : AppBarLayout.OnOffsetChangedListener {
+            override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
+                this@JobFragment.verticalOffset = verticalOffset
+            }
+        })
         RxView.clicks(cityContainer).throttleFirst(500, TimeUnit.MILLISECONDS)
                 .subscribe(object : Consumer<Any> {
                     override fun accept(t: Any?) {
@@ -120,7 +139,8 @@ class JobFragment : BaseSupportFragment<IPresenter>() {
                 iconType.animate().rotation(0F).setDuration(300).start()
             }
         }
-
+        showPopWindow(view.id)
+        //loadRootFragment(R.id.rl_frame_holder, DialogItemListFragment.newInstance(arrayListOf("a","a","a","a","a","a","a","a","a")))
     }
 
     private fun testData() {
@@ -142,17 +162,6 @@ class JobFragment : BaseSupportFragment<IPresenter>() {
                 Job("title", 12345, "年龄18岁以上龄18岁以上,年龄18岁以上龄18岁以上", "上海蓝鸽酒店管理公司")
         ))
 
-        /**
-         * mBannerView.setPages(
-        () -> new ImageHolderView(mBannerView.getMeasuredHeight(), ScalingUtils.ScaleType.FIT_XY, getBaseActivity()), adList)
-        .setPageIndicator(new int[]{R.drawable.ic_page_indicator_rect, R.drawable.ic_page_indicator_focus_rect})
-        .setPointViewVisible(adList.size() > 1)
-        .setCanLoop(adList.size() > 1);
-        if (adList.size() > 1) {
-        mBannerView.startTurning(3000);
-        }
-         */
-
         banner.setPages(object : CBViewHolderCreator<BannerImageHolder> {
             override fun createHolder(): BannerImageHolder {
                 return BannerImageHolder(ConvertUtils.dp2px(180F))
@@ -162,6 +171,56 @@ class JobFragment : BaseSupportFragment<IPresenter>() {
                 .setPageIndicator(intArrayOf(R.drawable.ic_page_card_indicator, R.drawable.ic_page_card_indicator_selected))
                 .setPointViewVisible(true).isCanLoop = true
         banner.startTurning(3000)
+    }
+
+    fun showPopWindow(@IdRes resId: Int) {
+        when (resId) {
+            R.id.icon_city -> {
+
+            }
+            R.id.icon_type -> {
+
+            }
+            R.id.icon_profession -> {
+
+            }
+        }
+        val listView = ListView(context)
+        val height = view!!.height - ConvertUtils.dp2px(48F) - (banner.height - Math.abs(verticalOffset))
+        listView.layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                        height
+                ))
+        listView.cacheColorHint = resources.getColor(android.R.color.transparent)
+        listView.adapter = DialogItemListFragment.DialogItemListAdapter(arrayListOf("a", "a", "a"))
+        listView.divider = resources.getDrawable(R.drawable.shape_divider_efefef_2px)
+        listView.setBackgroundColor(resources.getColor(R.color.color_50000000))
+        val popupWindow = PopupWindow(listView, recyclerView.width,
+                height,
+                true)
+        popupWindow.animationStyle = 0
+        popupWindow.isOutsideTouchable = true
+        //popupWindow.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.color_50000000)))
+        popupWindow.setOnDismissListener {
+            iconCity.animate().rotation(0F).setDuration(300).start()
+            iconType.animate().rotation(0F).setDuration(300).start()
+            iconProfession.animate().rotation(0F).setDuration(300).start()
+        }
+        popupWindow.setTouchInterceptor(View.OnTouchListener { v, event ->
+            if (MotionEvent.ACTION_UP == event!!.action) {
+                if (event.y > listView.adapter.count * ConvertUtils.dp2px(48F)) {
+                    popupWindow.dismiss()
+                    return@OnTouchListener true
+                }
+            }
+
+            false
+        })
+
+        listView.setOnItemClickListener { parent, view, position, id ->
+            popupWindow.dismiss()
+        }
+        popupWindow.showAsDropDown(filterContainer, 0, 0, Gravity.TOP)
     }
 
     override fun initView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

@@ -54,7 +54,6 @@ class MainActivity : BaseSupportActivity<IPresenter>() {
                 override fun onTabReselect(position: Int) {
 
                 }
-
             })
         }
 

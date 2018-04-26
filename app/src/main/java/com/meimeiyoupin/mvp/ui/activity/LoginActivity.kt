@@ -27,7 +27,7 @@ class LoginActivity : BaseActivity<IPresenter>() {
 
 
     override fun initData(savedInstanceState: Bundle?) {
-        RxView.clicks(tvLogin).throttleFirst(1000, TimeUnit.MILLISECONDS).subscribe({
+        RxView.clicks(tvLogin).throttleFirst(500, TimeUnit.MILLISECONDS).subscribe({
             ARouter.getInstance().build(ARouterPath.UPLOAD_PICTURE).navigation()
             finish()
         }, {
