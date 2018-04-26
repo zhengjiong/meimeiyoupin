@@ -32,6 +32,7 @@ class AllActivityList : AppCompatActivity() {
         recyclerView.adapter = Adapter(listOf(
                 ActivityName("启动页", ARouterPath.LAUNCHER),
                 ActivityName("C端-工作", ARouterPath.MAIN_PAGE),
+                ActivityName("个人中心", ARouterPath.USER_CENTER),
                 ActivityName("登录页", ARouterPath.LOGIN),
                 ActivityName("上传照片", ARouterPath.UPLOAD_PICTURE),
                 ActivityName("资料填写", ARouterPath.INFORMATION_WRITE),

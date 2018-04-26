@@ -20,6 +20,9 @@ object ARouterPath {
     //主页
     const val MAIN_PAGE = "/app/main"
 
+    //个人中心
+    const val USER_CENTER = "/app/user_center"
+
     //资料填写
     const val INFORMATION_WRITE = "/app/information_write"
 
