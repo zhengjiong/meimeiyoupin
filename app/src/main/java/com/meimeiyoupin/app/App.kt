@@ -2,8 +2,11 @@ package com.zj.bilibili.app
 
 import android.content.Context
 import android.support.multidex.MultiDex
+import com.bilibili.boxing.BoxingMediaLoader
+import com.bilibili.boxing.loader.IBoxingMediaLoader
 import com.blankj.utilcode.util.Utils
 import com.jess.arms.base.BaseApplication
+import com.meimeiyoupin.app.BoxingGlideLoader
 
 /**
  *
@@ -18,5 +21,6 @@ class App : BaseApplication() {
         super.attachBaseContext(base)
         MultiDex.install(base)
         Utils.init(this);
+        BoxingMediaLoader.getInstance().init(BoxingGlideLoader());
     }
 }

@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name="com.zj.bilibili.app.App"
@@ -39,6 +40,15 @@
         <activity android:name=".mvp.ui.activity.InformationWriteActivity"/>
         <activity android:name=".mvp.ui.activity.UploadOfficePictureActivity"/>
         <activity android:name=".mvp.ui.activity.UploadLicenseActivity"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.file.provider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/boxing_file_provider"/>
+        </provider>
     </application>
 
 </manifest>

@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.bigkoo.convenientbanner.holder.Holder
 import com.blankj.utilcode.util.ScreenUtils
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
+import com.jess.arms.http.imageloader.glide.GlideArms
 import com.meimeiyoupin.R
 
 /**
@@ -31,7 +30,7 @@ class BannerImageHolder(val bannerHeight: Int) : Holder<String> {
     }
 
     override fun UpdateUI(context: Context?, position: Int, data: String?) {
-        Glide.with(context!!)
+        GlideArms.with(context!!)
                 .load("https://1919-new-bbc-test.oss-cn-beijing.aliyuncs.com/d394f3dd-3f64-4d0d-9f53-77304c8ad32f")
                 .into(icon)
     }

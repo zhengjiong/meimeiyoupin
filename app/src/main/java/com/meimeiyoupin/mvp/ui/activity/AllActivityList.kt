@@ -10,9 +10,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.jakewharton.rxbinding2.view.RxView
 import com.meimeiyoupin.R
 import com.meimeiyoupin.app.ARouterPath
 import com.meimeiyoupin.mvp.model.entity.ActivityName
+import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.module_activity_all.*
 
 /**
@@ -47,9 +49,11 @@ class AllActivityList : AppCompatActivity() {
     class Adapter(val data: List<ActivityName>) : RecyclerView.Adapter<ListViewHolder>() {
         override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
             holder.tvTitle.text = data[position].name
-            (holder.tvTitle.parent as View).setOnClickListener {
+            RxView.clicks(holder.tvTitle.parent as View).subscribe({
                 ARouter.getInstance().build(data[position].path).navigation(holder.itemView.context)
-            }
+            }, {
+
+            })
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
