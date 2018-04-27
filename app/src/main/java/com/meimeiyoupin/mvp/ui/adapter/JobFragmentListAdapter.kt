@@ -16,6 +16,6 @@ import com.meimeiyoupin.mvp.ui.holder.JobViewHolder
 class JobFragmentListAdapter(@LayoutRes resId: Int = R.layout.module_fragment_job_item) : BaseQuickAdapter<Job, JobViewHolder>(resId) {
 
     override fun convert(helper: JobViewHolder?, item: Job?) {
-        println("convert " + helper!!.adapterPosition)
+
     }
 }

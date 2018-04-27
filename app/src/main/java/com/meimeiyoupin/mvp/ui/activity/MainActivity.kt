@@ -12,7 +12,9 @@ import com.meimeiyoupin.R
 import com.meimeiyoupin.app.ARouterPath
 import com.meimeiyoupin.mvp.model.entity.TabEntity
 import com.meimeiyoupin.mvp.ui.base.BaseSupportActivity
+import com.meimeiyoupin.mvp.ui.fragment.MainFragment
 import com.meimeiyoupin.mvp.ui.fragment.ResumeFragment
+import com.meimeiyoupin.mvp.ui.fragment.UserCenterFragment
 import me.yokeyword.fragmentation.ISupportFragment
 
 /**
@@ -24,39 +26,13 @@ import me.yokeyword.fragmentation.ISupportFragment
 @Route(path = ARouterPath.MAIN_PAGE)
 class MainActivity : BaseSupportActivity<IPresenter>() {
 
-    @BindView(R.id.tab_layout)
-    lateinit var tabLayout: CommonTabLayout
-    private val mFragments by lazy {
-        arrayOfNulls<ISupportFragment>(3)
-    }
-
     override fun setupActivityComponent(appComponent: AppComponent) {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        mFragments[0] = JobFragment.newInstance()
-        mFragments[1] = ResumeFragment.newInstance()
-        mFragments[2] = ResumeFragment.newInstance()
-
-        loadRootFragment(R.id.fl_container, mFragments[0]!!)
-
-        tabLayout.run {
-            setTabData(arrayListOf(
-                    TabEntity("工作", R.mipmap.ic_home_selected, R.mipmap.ic_home_unselected),
-                    TabEntity("简历", R.mipmap.ic_home_selected, R.mipmap.ic_home_unselected),
-                    TabEntity("个人中心", R.mipmap.ic_home_selected, R.mipmap.ic_home_unselected)
-            ))
-            setOnTabSelectListener(object : OnTabSelectListener {
-                override fun onTabSelect(position: Int) {
-                    showHideFragment(mFragments[position])
-                }
-
-                override fun onTabReselect(position: Int) {
-
-                }
-            })
+        if (findFragment(MainFragment::class.java) == null) {
+            loadRootFragment(R.id.fl_container, MainFragment.newInstance())
         }
-
     }
 
 

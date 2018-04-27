@@ -371,4 +371,11 @@ public abstract class BaseSupportFragment<P extends IPresenter> extends BaseFrag
     public void showHideFragment(ISupportFragment showFragment) {
         mDelegate.showHideFragment(showFragment);
     }
+
+     /**
+     * show一个Fragment,hide一个Fragment ; 主要用于类似微信主页那种 切换tab的情况
+     */
+    public void showHideFragment(ISupportFragment showFragment, ISupportFragment hideFragment) {
+        mDelegate.showHideFragment(showFragment, hideFragment);
+    }
 }
