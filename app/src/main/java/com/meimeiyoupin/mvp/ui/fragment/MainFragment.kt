@@ -54,7 +54,7 @@ class MainFragment : BaseSupportFragment<IPresenter>() {
         if (firstFragment == null) {
             mFragments[0] = JobFragment.newInstance()
             mFragments[1] = ResumeFragment.newInstance()
-            mFragments[2] = ResumeFragment.newInstance()
+            mFragments[2] = UserCenterFragment.newInstance()
             loadMultipleRootFragment(R.id.fl_container, 0, mFragments[0], mFragments[1], mFragments[2])
         } else {
             mFragments[0] = firstFragment
@@ -77,22 +77,12 @@ class MainFragment : BaseSupportFragment<IPresenter>() {
                             prePosition = position
                         }
                         1 -> {
-                            showHideFragment(mFragments[position], mFragments[prePosition])
-                            prePosition = position
+                            start(UploadPictureFragment.newInstance(), ISupportFragment.SINGLETOP)
+                            tabLayout.currentTab = prePosition
                         }
                         2 -> {
-                            // 因为启动的MsgFragment是MainFragment的兄弟Fragment,所以需要MainFragment.start()
-
-                            // 也可以像使用getParentFragment()的方式,拿到父Fragment来操作 或者使用 EventBusActivityScope
-                            //((MainFragment) getParentFragment()).startBrotherFragment(MsgFragment.newInstance(mAdapter.getMsg(position)));
-
-                            start(UserCenterFragment.newInstance())
-                            //this@MainActivity.start(UserCenterFragment.newInstance())
-                            //start(UserCenterFragment.newInstance())
-                            //findFragment(JobFragment::class.java).start(UserCenterFragment.newInstance())
-
-                            //topFragment.supportDelegate.start(UserCenterFragment.newInstance())
-                            tabLayout.currentTab = prePosition
+                            showHideFragment(mFragments[position], mFragments[prePosition])
+                            prePosition = position
                         }
                     }
                 }
