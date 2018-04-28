@@ -104,9 +104,9 @@ class UploadPictureFragment : BaseSupportFragment<IPresenter>() {
                             .load(path)
                             .centerCrop()
                             .transform(RoundedCorners(ConvertUtils.dp2px(6F)))
-                            .into(object : SimpleTarget<Drawable>(500, 500) {
+                            .into(object : SimpleTarget<Drawable>(img1.width, img1.height) {
                                 override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
-                                    img_1.setBackgroundDrawable(resource)
+                                    img1.setBackgroundDrawable(resource)
                                 }
 
                             })
