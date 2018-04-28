@@ -94,4 +94,7 @@ class MainFragment : BaseSupportFragment<IPresenter>() {
         }
     }
 
+    fun startBrotherFragment(fragment: BaseSupportFragment<IPresenter>) {
+        start(fragment)
+    }
 }

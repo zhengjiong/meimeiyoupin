@@ -32,4 +32,7 @@ object ARouterPath {
     //营业执照
     const val UPLOAD_LICENSE = "/app/upload_license"
 
+    //订单列表
+    const val ORDER_LIST = "/app/orderlist"
+
 }

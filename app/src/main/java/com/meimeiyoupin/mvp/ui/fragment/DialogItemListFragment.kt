@@ -49,7 +49,7 @@ class DialogItemListFragment : BaseSupportFragment<IPresenter>() {
     }
 
     override fun initView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.modeule_fragment_dialog_item_list, container, false)
+        return inflater.inflate(R.layout.module_fragment_dialog_item_list, container, false)
     }
 
     override fun initData(savedInstanceState: Bundle?) {
