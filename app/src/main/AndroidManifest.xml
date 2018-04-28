@@ -34,12 +34,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".mvp.ui.activity.LoginActivity"/>
         <activity android:name=".mvp.ui.activity.MainActivity"/>
         <activity android:name=".mvp.ui.activity.AllActivityList"/>
-        <activity android:name=".mvp.ui.activity.InformationWriteActivity"/>
-        <activity android:name=".mvp.ui.activity.UploadOfficePictureActivity"/>
-        <activity android:name=".mvp.ui.activity.UploadLicenseActivity"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

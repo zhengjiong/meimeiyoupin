@@ -3,11 +3,9 @@ package com.meimeiyoupin.mvp.ui.fragment
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import butterknife.BindView
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.bilibili.boxing.Boxing
 import com.bilibili.boxing.model.config.BoxingConfig
@@ -26,23 +24,25 @@ import com.meimeiyoupin.R
 import com.meimeiyoupin.app.ARouterPath
 import com.meimeiyoupin.mvp.ui.base.BaseSupportFragment
 import com.meimeiyoupin.utils.RequestCode
-import kotlinx.android.synthetic.main.module_activity_upload_picture.*
+import io.reactivex.functions.Consumer
+import kotlinx.android.synthetic.main.module_fragment_license_layout.*
 import java.util.concurrent.TimeUnit
 
 /**
  *
  * Copyright:Copyright(c) 2018
- * CreateTime:18/4/27$  10:54$
+ * CreateTime:18/4/28$  09:22$
  * @author 郑炯
  * @version 1.0
  */
 
-@Route(path = ARouterPath.UPLOAD_PICTURE)
-class UploadPictureFragment : BaseSupportFragment<IPresenter>() {
+@Route(path = ARouterPath.UPLOAD_LICENSE)
+class UploadLicenseFragment : BaseSupportFragment<IPresenter>() {
 
     companion object {
+
         @JvmStatic
-        fun newInstance() = UploadPictureFragment()
+        fun newInstance() = UploadLicenseFragment()
     }
 
     override fun setupFragmentComponent(appComponent: AppComponent) {
@@ -54,39 +54,37 @@ class UploadPictureFragment : BaseSupportFragment<IPresenter>() {
     }
 
     override fun initView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.module_activity_upload_picture, container, false)
+        return inflater.inflate(R.layout.module_fragment_license_layout, container, false)
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        initListener()
-    }
-
-    private fun initListener() {
+        toolbar.title = "营业执照"
         toolbar.setNavigationOnClickListener {
             pop()
         }
-        RxView.clicks(btn_next)
-                .throttleFirst(300, TimeUnit.MILLISECONDS)
-                .subscribe(
-                        {
-                            start(InformationWriteFragment.newInstance())
-                        },
-                        {
-
-                        }
-                )
-        RxView.clicks(fab)
+        RxView.clicks(img1)
                 .throttleFirst(300, TimeUnit.MILLISECONDS)
                 .subscribe({
-                    //Utils.startBoxing(activity!!)
                     val boxing = Boxing.of(BoxingConfig(BoxingConfig.Mode.SINGLE_IMG).needCamera(R.mipmap.ic_boxing_camera_white))
                             .withIntent(activity, BoxingActivity::class.java)
+
                     /**
                      * 这里需要调用fragment的startActivityForResult方法, 不能使用boxing自带的start方法,
                      * 不然选择图片后不会进入fragment的onActivityResult方法
                      */
                     startActivityForResult(boxing.intent, RequestCode.REQUEST_CODE_BOXING)
-                }) {}
+                }, { }
+                )
+        RxView.clicks(btnNext)
+                .throttleFirst(300, TimeUnit.MILLISECONDS)
+                .subscribe(
+                        {
+                            start(UploadOfficePictureFragment.newInstance())
+                        },
+                        {
+                        }
+                )
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -106,7 +104,7 @@ class UploadPictureFragment : BaseSupportFragment<IPresenter>() {
                             .transform(RoundedCorners(ConvertUtils.dp2px(6F)))
                             .into(object : SimpleTarget<Drawable>(500, 500) {
                                 override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
-                                    img_1.setBackgroundDrawable(resource)
+                                    img1.setBackgroundDrawable(resource)
                                 }
 
                             })

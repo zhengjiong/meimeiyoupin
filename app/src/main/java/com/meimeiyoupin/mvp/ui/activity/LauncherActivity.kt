@@ -8,6 +8,7 @@ import com.jess.arms.di.component.AppComponent
 import com.jess.arms.mvp.IPresenter
 import com.jess.arms.utils.RxLifecycleUtils
 import com.meimeiyoupin.R
+import com.meimeiyoupin.app.ARouterPath
 import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
 
@@ -18,18 +19,18 @@ import java.util.concurrent.TimeUnit
  * @author 郑炯
  * @version 1.0
  */
-@Route(path = "/app/launcher")
+@Route(path = ARouterPath.LAUNCHER)
 class LauncherActivity : BaseActivity<IPresenter>() {
     override fun initView(savedInstanceState: Bundle?): Int {
         return R.layout.module_activity_launcher
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        Observable.timer(1500, TimeUnit.MILLISECONDS)
+        Observable.timer(1000, TimeUnit.MILLISECONDS)
                 .compose(RxLifecycleUtils.bindToLifecycle(this))
                 .subscribe {
                     //ARouter.getInstance().build("/app/login").navigation(this)
-                    ARouter.getInstance().build("/app/all").navigation(this)
+                    ARouter.getInstance().build(ARouterPath.MAIN_PAGE).navigation(this)
                     finish()
                 }
     }

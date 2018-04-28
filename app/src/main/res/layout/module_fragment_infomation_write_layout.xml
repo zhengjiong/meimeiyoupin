@@ -15,7 +15,7 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="54dp"
         android:background="@color/white"
         android:gravity="center_vertical"
         android:hint="请输入身高"
@@ -31,7 +31,7 @@
         android:background="@color/color_cecece"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="54dp"
         android:background="@color/white"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/padding_16"
@@ -41,7 +41,7 @@
     <include layout="@layout/module_divider_horizontal_color_cecece"/>
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="54dp"
         android:background="@color/white"
         android:gravity="center_vertical"
         android:orientation="horizontal"

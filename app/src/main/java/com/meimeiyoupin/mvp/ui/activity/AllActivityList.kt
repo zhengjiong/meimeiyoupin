@@ -34,12 +34,8 @@ class AllActivityList : AppCompatActivity() {
         recyclerView.adapter = Adapter(listOf(
                 ActivityName("启动页", ARouterPath.LAUNCHER),
                 ActivityName("C端-工作", ARouterPath.MAIN_PAGE),
-                ActivityName("登录页", ARouterPath.LOGIN),
-                ActivityName("资料填写", ARouterPath.INFORMATION_WRITE),
-                ActivityName("办公环境", ARouterPath.UPLOAD_OFFICE_PICTURE),
-                ActivityName("营业执照", ARouterPath.UPLOAD_LICENSE)
+                ActivityName("登录页", ARouterPath.LOGIN)
         ))
-
     }
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -50,7 +46,11 @@ class AllActivityList : AppCompatActivity() {
         override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
             holder.tvTitle.text = data[position].name
             RxView.clicks(holder.tvTitle.parent as View).subscribe({
-                ARouter.getInstance().build(data[position].path).navigation(holder.itemView.context)
+                if (data[position].path == ARouterPath.LOGIN) {
+
+                } else {
+                    ARouter.getInstance().build(data[position].path).navigation(holder.itemView.context)
+                }
             }, {
 
             })
