@@ -55,9 +55,8 @@ class UserCenterFragment : BaseSupportFragment<IPresenter>() {
         RxView.clicks(companyContainer)
                 .throttleFirst(300, TimeUnit.MILLISECONDS)
                 .subscribe({
-
+                    (parentFragment as MainFragment).startBrotherFragment(PublishJobFragment.newInstance())
                 }, {
-
                 })
 
     }

@@ -115,6 +115,7 @@ dependencies {
     implementation rootProject.ext.dependencies["agentweb"]
     implementation rootProject.ext.dependencies["convenientbanner"]
     implementation rootProject.ext.dependencies["flexibledivider"]
+    implementation rootProject.ext.dependencies["flexbox"]
 
     // tool
     implementation rootProject.ext.dependencies["arouter"]
@@ -135,5 +136,6 @@ dependencies {
     implementation rootProject.ext.dependencies["paginate"]
 
 
-    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    //implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
 }

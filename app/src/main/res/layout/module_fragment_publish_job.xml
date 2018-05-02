@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/ToolBarTheme"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextAppearance="@style/ToolbarTitle"/>
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            app:tl_divider_color="@color/color_efefef"
+            app:tl_divider_padding="13dp"
+            app:tl_divider_width="1dp"
+            app:tl_indicator_color="@color/color_fd6aa9"
+            app:tl_indicator_height="1.5dp"
+            app:tl_tab_space_equal="true"
+            app:tl_textSelectColor="@color/color_fd6aa9"
+            app:tl_textUnselectColor="@color/color_999999"
+            app:tl_underline_color="@color/color_efefef"
+            app:tl_underline_height="1dp"/>
+        <!--
+        tl_tab_space_equal  设置tab大小等分
+        tl_tab_padding      设置tab的paddingLeft和paddingRight
+        -->
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+</android.support.design.widget.CoordinatorLayout>
