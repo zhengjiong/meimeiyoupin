@@ -2,7 +2,6 @@
     <style name="ToolBarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
         <!-- navigation icon color -->
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
-        <item name="android:navigationIcon">@drawable/ic_arrow_back_black_24dp</item>
         <item name="navigationIcon">@drawable/ic_arrow_back_black_24dp</item>
         <item name="background">@color/colorPrimary</item>
         <item name="android:background">@color/colorPrimary</item>
